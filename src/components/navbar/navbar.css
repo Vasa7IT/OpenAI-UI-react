@@ -40,6 +40,7 @@
     align-items:center;
 }
 
+
 /* sign In button animation here  */
 .gpt3__navbar-anim_btn{
     padding: .5rem 1rem;
@@ -100,7 +101,6 @@
 }
 
 
-
 .gpt3__navbar-links_container p,
 .gpt3__navbar-sign p,
 .gpt3__navbar-menu_container p{
@@ -125,6 +125,38 @@
     font-size: 18px;
     border-radius:2px;
 }
+
+/* menu link hover animation */
+.gpt3__navbar-links_container p,
+.gpt3__navbar-menu_container p{
+    position: relative;
+    transition: color 0.5s ease;
+}
+.gpt3__navbar-links_container p::after,
+.gpt3__navbar-menu_container p::after{
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    background-size: 300% 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.gpt3__navbar-links_container p:hover,
+.gpt3__navbar-menu_container p:hover{
+    color: #FF4820;
+}
+.gpt3__navbar-links_container p:hover::after,
+.gpt3__navbar-menu_container p:hover::after{
+    opacity:1;
+    animation:shimmer 2s linear infinite;
+}
+
+
+
 .gpt3__navbar-menu{
     margin-left: 1rem;
     display:none;
@@ -155,6 +187,18 @@
 .gpt3__navbar-menu_container-links-sign{
     display:none;
 }
+
+
+@keyframes shimmer{
+    0%{
+        background-position: 200% 0;
+    }
+    100%{
+        background-position: -200% 0;
+    }
+}
+
+
 @media screen and (max-width:1070px){
     .gpt3__navbar-links_container{
         display:none;
