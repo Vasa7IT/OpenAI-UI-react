@@ -1,3 +1,5 @@
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
 *,
 *::before,
 *::after{
@@ -73,6 +75,42 @@ display:flex;
     padding:0 1rem;
     cursor:pointer;
 }
+
+/* button effect  */
+.effect { 
+    display: inline-block;
+    position: relative;
+    text-transform: capitalize;
+    background-color:var(--color-button);
+    padding: 20px 0px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  .effect::before {
+    content: "\f054"; /* Unicode for FontAwesome 'angle-right' */
+    font-family: "Font Awesome 5 Free"; /* Ensure FontAwesome is applied */
+    font-weight: 900; /* Required for solid icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    height: 100%;
+    width: 30px;
+    background-color:rgba(255, 232, 232, 0.405);
+    border-radius: 0 50% 50% 0;
+    transform: scale(0,1);
+    transform-origin: left center;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .effect:hover::before {
+    transform: scale(1,1);
+  }
+  
+  
+
 .gpt3__header-content__people{
     width:100%;
     display:flex;
@@ -105,8 +143,6 @@ display:flex;
 }
 
 
-
-
 @media screen and (max-width:1070px){
     .gpt3__header{
         flex-direction: column;
@@ -115,7 +151,7 @@ display:flex;
         margin:0 0 3rem;
     }
 }
-@media screen and (max-width:700px){
+@media screen and (max-width:750px){
     .gpt3__header h1{
         font-size: 48px;
         line-height:60px;
@@ -132,7 +168,11 @@ display:flex;
     }
     .gpt3__header-content__input input,
     .gpt3__header-content__input button{
-        font-size:15px;
+        font-size:13px;
+        
+    }
+    .effect:hover{
+        text-indent: 10px;
     }
 }
 @media screen and (max-width:550px){
